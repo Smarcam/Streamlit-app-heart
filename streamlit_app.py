@@ -9,7 +9,7 @@ from sklearn.preprocessing import StandardScaler
 st.title("Predicción de Infartos al Corazón")
 st.subheader("Proyecto Machine Learning")
 
-image = Image.open('IMG/ataque-cardaco.jpg')
+image = Image.open('ataque-cardaco.jpg')
 st.image(image, caption='Ataque_Cardiaco')
 
 nombre = st.text_input("Introduce el nombre del paciente", max_chars=10)
