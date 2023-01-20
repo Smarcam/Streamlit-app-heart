@@ -3,4 +3,4 @@ scikit-learn
 streamlit 
 joblib 
 numpy 
-Imagen
+PIL
