@@ -35,9 +35,12 @@ with col2:
     velocidad_azucar_sangre = st.selectbox(" Azúcar en sangre en ayunas > 120 mg/dl", ["Si", "No"])
     vasos_principales = st.slider(" Número de vasos principales", 0, 3)
 
+    
+    
+heart = joblib.load("heart.pkl")
+
 if st.button("Calcular la salida"):
 
-    heart = joblib.load("heart.pkl")
 
     input_data_num = [edad, presion_arterial_reposo, colesterol, max_fecuencia_cardiaca, sT_depresion]
     input_data_cat = [sexo, tipo_dolor_pecho, velocidad_azucar_sangre, ecg_reposo, angina_ind_ejercicio, sT_pendiente, vasos_principales, tipo_defecto]
