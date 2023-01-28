@@ -5,6 +5,11 @@ import joblib
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 
+@st.cache(allow_output_mutation=True)
+def model():
+      return joblib.load("heart.pkl")
+
+heart_predict = model()
 
 st.title("Predicción de Infartos al Corazón")
 st.subheader("Proyecto Machine Learning")
@@ -37,7 +42,7 @@ with col2:
 
 if st.button("Calcular la salida"):
     
-    heart = joblib.load("heart.pkl")
+    # heart = joblib.load("heart.pkl")
 
     input_data_num = [edad, presion_arterial_reposo, colesterol, max_fecuencia_cardiaca, sT_depresion]
     input_data_cat = [sexo, tipo_dolor_pecho, velocidad_azucar_sangre, ecg_reposo, angina_ind_ejercicio, sT_pendiente, vasos_principales, tipo_defecto]
@@ -64,7 +69,7 @@ if st.button("Calcular la salida"):
     X = X.replace(["No", "Si"], [0, 1])
     X = X.replace(["No", "Si"], [0, 1]) 
 
-    prediction = heart.predict(X)[0]
+    prediction = heart_predict.predict(X)[0]
     
     if prediction == 1:
         prediction = "muy alto"
